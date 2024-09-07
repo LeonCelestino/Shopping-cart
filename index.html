@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Product list with cart</title>
+  <link rel="stylesheet" href="./assets/css/global.css">
+  <link rel="stylesheet" href="./assets/css/variables.css">
+  <link rel="stylesheet" href="./assets/css/main.css">
+</head>
+<body>
+
+  <section class="products">
+
+    <main class="js-handle-products-display products__menu">
+      
+      <h2 class="products__category-title">Desserts</h2>
+    
+    </main>
+
+    <aside class="products__cart">
+
+      <h3 class="cart__title">Your cart (<span class="js-items">0</span>)</h3>
+
+      <div class="cart__items js-display-products">
+        <div class="cart__item-wrap">
+          <h4 class="item-name">Classic Tiramisu</h4>
+          <div class="cart__item-information">
+              <p class="item__amount js-item__amount">1x</p>
+              <p class="item__unit-price js-item__unit-price"><span class="snail">@</span>$7.00</p>
+              <p class="item__total-price js-item__total-price">$28.00</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cart__order-total js-cart__order-total">
+        <p>Order Total</p>
+        <p class="cart__total js-cart__total">$46.50</p>
+      </div>
+
+      <div class="cart__env-friendly">
+        <p>This is a <span>carbon-neutral</span> delivery</p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" fill="none" viewBox="0 0 21 20"><path fill="#1EA575" d="M8 18.75H6.125V17.5H8V9.729L5.803 8.41l.644-1.072 2.196 1.318a1.256 1.256 0 0 1 .607 1.072V17.5A1.25 1.25 0 0 1 8 18.75Z"/><path fill="#1EA575" d="M14.25 18.75h-1.875a1.25 1.25 0 0 1-1.25-1.25v-6.875h3.75a2.498 2.498 0 0 0 2.488-2.747 2.594 2.594 0 0 0-2.622-2.253h-.99l-.11-.487C13.283 3.56 11.769 2.5 9.875 2.5a3.762 3.762 0 0 0-3.4 2.179l-.194.417-.54-.072A1.876 1.876 0 0 0 5.5 5a2.5 2.5 0 1 0 0 5v1.25a3.75 3.75 0 0 1 0-7.5h.05a5.019 5.019 0 0 1 4.325-2.5c2.3 0 4.182 1.236 4.845 3.125h.02a3.852 3.852 0 0 1 3.868 3.384 3.75 3.75 0 0 1-3.733 4.116h-2.5V17.5h1.875v1.25Z"/></svg>
+      </div>
+      <button class="cart__confirm-order js-cart__confirm-order">Confirm Order</button>
+      
+    </aside>
+
+  </section>
+
+
+  <footer class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
+    Coded by <a href="#">LeonCelestino</a>.
+  </footer>
+</body>
+
+<template id="products-container-template">
+  <div class="products__item">
+    <div class="products__sale-preview">
+      <div class="product__image">
+        <picture>
+          <source media="(min-width: 60rem)" class="js-desktop-image">
+          <source media="(min-width: 37.5rem)" class="js-tablet-image">
+          <source media="(max-width < 37.5rem)" class="js-mobile-image">
+          <img src="" alt="" class="js-default-image">
+        </picture>
+        
+      </div>
+      <div class="item__buttons-wrap js-buttons-wrap">
+        <button class="item__add-button js-add-to-cart" value="">
+          Add to Cart
+          <svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" fill="none" viewBox="0 0 21 20"><g fill="#C73B0F" clip-path="url(#a)"><path d="M6.583 18.75a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5ZM15.334 18.75a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5ZM3.446 1.752a.625.625 0 0 0-.613-.502h-2.5V2.5h1.988l2.4 11.998a.625.625 0 0 0 .612.502h11.25v-1.25H5.847l-.5-2.5h11.238a.625.625 0 0 0 .61-.49l1.417-6.385h-1.28L16.083 10H5.096l-1.65-8.248Z"/><path d="M11.584 3.75v-2.5h-1.25v2.5h-2.5V5h2.5v2.5h1.25V5h2.5V3.75h-2.5Z"/></g><defs><clipPath id="a"><path fill="#fff" d="M.333 0h20v20h-20z"/></clipPath></defs></svg>
+        </button>
+      </div>
+      
+    </div>
+    <div class="products__info">
+      <p class="item__kind js-item-kind"></p>
+      <p class="item__name js-item-name"></p>
+      <p class="item__price js-item-price"></p>
+    </div>
+  </div>
+</template>
+
+
+<template id="item__add-more-active">
+  <div class="item__add-more-wrap js-item__add-more-wrap">
+    <button class="js-decrement item__add-more"><svg xmlns="http://www.w3.org/2000/svg" width="10" height="2" fill="none" viewBox="0 0 10 2"><path fill="#fff" d="M0 .375h10v1.25H0V.375Z"/></svg></button>
+    <p class="js-amount amount">1</p>
+    <button class="js-increment item__add-more"><svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="none" viewBox="0 0 10 10"><path fill="#fff" d="M10 4.375H5.625V0h-1.25v4.375H0v1.25h4.375V10h1.25V5.625H10v-1.25Z"/></svg></button>
+  </div>
+</template>
+
+<template id="cart-item-template">
+  <div class="cart__item-wrap">
+    <h3 class="item-name"></h3>
+    <div class="cart__item-information">
+        <p class="item__amount js-item__amount"></p>
+        <p class="item__unit-price"></p>
+        <p class="item__total-price"></p>
+    </div>
+  </div>
+</template>
+
+
+<script src="/assets/scripts/index.js"></script>
+</html>
