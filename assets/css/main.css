@@ -11,7 +11,7 @@
     .products__menu {
 
         display: flex;
-        flex-direction: column;
+        flex-wrap: wrap;
         gap: 1rem;
         
     }
@@ -198,7 +198,7 @@
             font-weight: 500;
 
             p {
-                font-size: .1rem;
+                font-size: min(.85rem, .5vw + .5rem);
             }
             
             background-color: var(--rose-100);
