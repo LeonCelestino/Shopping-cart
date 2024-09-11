@@ -21,7 +21,6 @@
     }      
 
     .products__item {
-        max-width: fit-content;
 
         display: flex;
         flex-direction: column;
@@ -65,6 +64,8 @@
             .item__add-button {
                 display: flex;
                 flex-direction: row-reverse;
+                justify-content: center;
+                align-items: center;
                 padding: .5rem 1.2rem;
                 gap: .5rem;
 
@@ -94,12 +95,20 @@
             }
 
             .item__add-more {
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 background: transparent;
                 border-radius: 50%;
-                padding: .3rem;
+                padding: .2rem;
                 cursor: pointer;
                 border: 1px solid white;
                 aspect-ratio: 1;
+
+                
+                svg {
+                    max-width: 80%;
+                }
             }
 
         }
@@ -137,15 +146,28 @@
 
             .item-name {
                 color: var(--rose-900);
+                
             }
+
             .cart__item-wrap {
                 border-bottom: 1px solid var(--rose-100);
                 padding-bottom: 1rem;
             }
             .cart__item-information {
-                display: flex;
-                gap: 1rem;
+                display: grid;
                 align-items: center;
+                justify-content: space-between;
+                grid-template-columns: max-content 30px;
+         
+                .cart__prices {
+                    display: flex;
+                    gap: .5rem;
+                }
+                button {
+                    justify-self: end;
+                    border: none;
+                    background: transparent;
+                }
             }
 
             p {
@@ -173,15 +195,20 @@
         .cart__order-total {
             display: flex;
             justify-content: space-between;
+            flex-wrap: wrap;
             align-items: center;
 
             color: var(--rose-500);
             font-weight: 500;
             
+            p {
+                font-size: .95rem;
+            }
+
             .cart__total {
                 color: var(--rose-900);
                 font-weight: 900;
-                font-size: 1.5rem;
+                font-size: 1.3rem;
             }
         }
 
@@ -189,28 +216,28 @@
             display: flex;
             flex-direction: row-reverse;
             justify-content: center;
-            gap: .5rem;
             align-items: center;
-            padding: 1rem;
+            gap: .5rem;
+            padding: 1rem .8rem;
 
-            
+            background: var(--rose-100);
             color: var(--rose-500);
             font-weight: 500;
 
             p {
-                font-size: min(.85rem, .5vw + .5rem);
+                font-size: clamp(.60rem, 1vw + 1rem, 1vw);
+                
             }
-            
-            background-color: var(--rose-100);
+           
             
             span {
                 color: var(--rose-900);
                 font-weight: 800;
+               
             }
 
             svg {
-                width: 2rem;
-                height: 1rem;
+                width: max(.6875rem, 1rem + 1vw);
             }
        
         }
